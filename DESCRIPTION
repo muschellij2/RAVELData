@@ -1,9 +1,11 @@
 Package: RAVELData
 Version: 0.99.1
-Title: Example dataset of input data for RAVEL
-Description: Processed data from KIRBY21 dataset.
+Title: Example Data for Removal of Artificial Voxel Effect by Linear 
+    Regression (RAVEL)
+Description: Processed data from 'KIRBY21' dataset 
+    <https://www.nitrc.org/projects/multimodal>.  
 Author: Jean-Philippe Fortin, Russell T. Shinohara
 Maintainer: Jean-Philippe Fortin <fortin946@gmail.com>
 License: GPL-2
-
-
+Suggests: 
+    testthat

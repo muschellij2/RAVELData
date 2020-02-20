@@ -35,7 +35,7 @@ pblapply(1:4, function(j){antsImageWrite(scans_n4_reg_brain[[j]], paste0("../dat
 # Segmentation with FSL FAST:
 scans_n4_reg_brain <- pblapply(scans_n4_reg_brain, ants2oro)
 segs  <- pblapply(scans_n4_reg_brain, function(x){
-	fast(file=x, outfile="try", opts= "-t 1 -n 3 --nobias", retimg=TRUE, verbose=FALSE)	
+	fast(file=x, outfile="try", opts= "-t 1 -n 3 --nobias", retimg=TRUE, verbose=FALSE)
 })
 system("rm try*")
 
@@ -44,8 +44,8 @@ segs_csf <- pblapply(segs, function(x){
 	x
 })
 
-pblapply(1:4, function(j){writeNIfTI(segs[[j]], paste0("../inst/extdata/scan",j,"_seg.nii.gz"))})
-pblapply(1:4, function(j){writeNIfTI(segs_csf[[j]], paste0("../inst/extdata/scan",j,"_csf_mask.nii.gz"))})
+pblapply(1:4, function(j){writenii(segs[[j]], paste0("../inst/extdata/scan",j,"_seg.nii.gz"))})
+pblapply(1:4, function(j){writenii(segs_csf[[j]], paste0("../inst/extdata/scan",j,"_csf_mask.nii.gz"))})
 
 
 
@@ -61,8 +61,8 @@ segs_csf <- pblapply(segs, function(x){
   x
 })
 
-pblapply(1:4, function(j){writeNIfTI(segs[[j]], paste0("../inst/extdata/scan",j,"_seg.nii.gz"))})
-pblapply(1:4, function(j){writeNIfTI(segs_csf[[j]], paste0("../inst/extdata/scan",j,"_csf_mask.nii.gz"))})
+pblapply(1:4, function(j){writenii(segs[[j]], paste0("../inst/extdata/scan",j,"_seg.nii.gz"))})
+pblapply(1:4, function(j){writenii(segs_csf[[j]], paste0("../inst/extdata/scan",j,"_csf_mask.nii.gz"))})
 
 
 pdf("try.pdf", width=5, height=5)
@@ -75,7 +75,7 @@ dev.off()
 
 
 
-# multi_overlay(scans_n4_reg_brain, 
+# multi_overlay(scans_n4_reg_brain,
 #   par.opts=list(mfrow=c(2,2),bg = "black",oma = c(0, 0, 0, 0), mar = rep(0, 4)))
 # dev.off()
 
